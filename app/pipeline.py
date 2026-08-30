@@ -49,6 +49,22 @@ def get_adapters():
         else:
             print("Skipping Gemini: API key not configured.")
 
+    if "ollama" in LLM_PROVIDERS:
+        from app.llm.ollama_adapter import OllamaAdapter
+        adapters.append(OllamaAdapter())
+
+    if "ollama_llama" in LLM_PROVIDERS:
+        from app.llm.ollama_adapter import OllamaAdapter
+        adapters.append(
+            OllamaAdapter("llama3.2:3b")
+        )
+
+    if "ollama_qwen" in LLM_PROVIDERS:
+        from app.llm.ollama_adapter import OllamaAdapter
+        adapters.append(
+            OllamaAdapter("qwen2.5:3b")
+        )
+
     return adapters
 
 

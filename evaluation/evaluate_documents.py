@@ -140,7 +140,11 @@ def evaluate_case(
 
     if expected_result == "extracted":
 
-        extracted = all(
+        # At least one model must successfully extract
+        # the document. Individual model accuracy is
+        # evaluated separately by evaluation/score.py.
+
+        extracted = any(
             result.get(
                 "document_status"
             ) == "extracted"
@@ -173,7 +177,28 @@ def evaluate_case(
                 "expected_statements"
             ]
 
-            actual_count = len(files)
+            # Multiple models produce one output file
+            # for each statement. Count unique models
+            # so model outputs are not mistaken for
+            # additional statements.
+
+            model_names = {
+                result.get("model")
+                for result in results
+                if result.get("model")
+            }
+
+            model_count = len(model_names)
+
+            if model_count:
+
+                actual_count = (
+                    len(files) // model_count
+                )
+
+            else:
+
+                actual_count = len(files)
 
             result[
                 "expected_statements"
