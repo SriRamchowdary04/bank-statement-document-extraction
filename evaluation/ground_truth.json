@@ -1,0 +1,58 @@
+{
+  "01_native_bank_statement_statement_1": [
+    {
+      "date": "2026-01-02",
+      "description": "Salary Credit",
+      "amount": 2500.0,
+      "running_balance": 3500.0
+    },
+    {
+      "date": "2026-01-04",
+      "description": "Rent Payment",
+      "amount": -900.0,
+      "running_balance": 2600.0
+    },
+    {
+      "date": "2026-01-06",
+      "description": "ATM Withdrawal",
+      "amount": -100.0,
+      "running_balance": 2500.0
+    },
+    {
+      "date": "2026-01-08",
+      "description": "Grocery Store",
+      "amount": -80.5,
+      "running_balance": 2419.5
+    }
+  ],
+
+  "05_merged_statements_statement_1": [
+    {
+      "date": "2026-03-01",
+      "description": "Deposit",
+      "amount": 1000.0,
+      "running_balance": 1800.0
+    },
+    {
+      "date": "2026-03-03",
+      "description": "Purchase",
+      "amount": -100.0,
+      "running_balance": 1700.0
+    }
+  ],
+
+  "05_merged_statements_statement_2": [
+    {
+      "date": "2026-03-01",
+      "description": "Deposit",
+      "amount": 1000.0,
+      "running_balance": 950.0
+    },
+    {
+      "date": "2026-03-03",
+      "description": "Purchase",
+      "amount": -100.0,
+      "running_balance": 850.0
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "01_native_bank_statement.pdf": {
+    "expected_type": "bank_statement",
+    "expected_route": "native_text",
+    "expected_result": "extracted"
+  },
+
+  "02_image_only_statement.pdf": {
+    "expected_type": "bank_statement",
+    "expected_route": "image_based",
+    "expected_result": "quality_review"
+  },
+
+  "03_scanned_statement.pdf": {
+    "expected_type": "bank_statement",
+    "expected_route": "image_based",
+    "expected_result": "quality_review"
+  },
+
+  "04_photocopy_statement.pdf": {
+    "expected_type": "bank_statement",
+    "expected_route": "image_based",
+    "expected_result": "quality_review"
+  },
+
+  "05_merged_statements.pdf": {
+    "expected_type": "bank_statement",
+    "expected_route": "native_text",
+    "expected_result": "extracted",
+    "expected_statements": 2
+  },
+
+  "06_password_protected.pdf": {
+    "expected_type": "bank_statement",
+    "expected_route": "password_protected",
+    "expected_result": "could_not_process"
+  },
+
+  "07_not_a_bank_statement.pdf": {
+    "expected_type": "not_bank_statement",
+    "expected_route": "native_text",
+    "expected_result": "could_not_process"
+  }
+}
