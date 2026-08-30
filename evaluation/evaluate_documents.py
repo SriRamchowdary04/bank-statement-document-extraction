@@ -106,8 +106,15 @@ def evaluate_case(
     if expected_result == "quality_review":
 
         quality_failure = any(
-            "Quality validation failed"
-            in (result.get("reason") or "")
+            (
+                "Quality validation failed"
+                in (result.get("reason") or "")
+            )
+            or
+            (
+                "OCR confidence too low"
+                in (result.get("reason") or "")
+            )
             for result in results
         )
 
@@ -116,11 +123,11 @@ def evaluate_case(
             "status":
                 "PASS"
                 if quality_failure
-                else "REVIEW",
+                else "FAIL",
             "expected":
                 expected_result,
             "actual":
-                "quality_failure"
+                "quality_review"
                 if quality_failure
                 else "extracted",
             "output_files":
