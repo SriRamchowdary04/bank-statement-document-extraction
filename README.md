@@ -17,31 +17,55 @@ The pipeline:
 
 ## Project layout
 
-```text
 document_extraction_poc/
+│
 ├── app/
 │   ├── main.py
 │   ├── config.py
 │   ├── detector.py
 │   ├── pipeline.py
 │   ├── prompts.py
+│   ├── quality.py
 │   ├── schemas.py
 │   ├── validators.py
+│   │
 │   ├── extractors/
 │   │   ├── native_text.py
 │   │   └── ocr.py
+│   │
 │   └── llm/
 │       ├── base.py
+│       ├── mock_adapter.py
 │       ├── openai_adapter.py
 │       ├── anthropic_adapter.py
-│       └── gemini_adapter.py
+│       ├── gemini_adapter.py
+│       └── ollama_adapter.py
+│
 ├── data/
 │   ├── input/
+│   │   └── [PDF test documents]
+│   │
 │   └── output/
+│       └── [JSON extraction results]
+│
+├── evaluation/
+│   ├── compare.py
+│   ├── evaluate_documents.py
+│   ├── ground_truth.json
+│   ├── report.py
+│   ├── score.py
+│   └── test_cases.json
+│
 ├── tests/
-├── requirements.txt
+│   ├── test_detector.py
+│   └── test_pipeline_components.py
+│
 ├── .env.example
-└── run.py
+├── .gitignore
+├── pytest.ini
+├── requirements.txt
+├── run.py
+└── README.md
 ```
 
 ## Setup
